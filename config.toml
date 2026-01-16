@@ -23,7 +23,10 @@ social_image = "creusot-logo-center.jpg"
 
 [extra.profile]
 name = "What's new in Creusot?"
-bio = "Devlog for the Creusot project: a deductive verifier for Rust"
+bio = """
+Devlog of the [Creusot deductive verifier](https://github.com/creusot-rs/creusot) for Rust.
+[The Creusot team](https://github.com/creusot-rs) is part of [Laboratoire Méthodes Formelles](https://lmf.cnrs.fr/).
+"""
 avatar_url = "creusot-logo-center.jpg"
 avatar_invert = true
 
