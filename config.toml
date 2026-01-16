@@ -1,0 +1,41 @@
+# The URL the site will be built for
+base_url = "https://creusot-rs.github.io/devlog/"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+theme = "kita"
+title = "Creusot Devlog"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+[markdown]
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+[extra]
+side_toc = true
+social_image = "creusot-logo-center.jpg"
+
+[extra.profile]
+name = "What's new in Creusot?"
+bio = "Devlog for the Creusot project: a deductive verifier for Rust"
+avatar_url = "creusot-logo-center.jpg"
+avatar_invert = true
+
+[[extra.profile.social]]
+name = "github"
+url = "https://github.com/creusot-rs/creusot"
+
+[[extra.profile.social]]
+name = "rss"
+url = "$BASE_URL/atom.xml"
+
+[extra.footer]
+since = 2026
+license = "CC BY-SA 4.0"
+license_url = "https://creativecommons.org/licenses/by-sa/4.0/deed"
