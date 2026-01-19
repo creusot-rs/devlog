@@ -1,0 +1,515 @@
+<!doctype html>
+<html class="not-ready lg:text-base" lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Title -->
+  <title>
+    Creusot 0.9.0 - Creusot Devlog
+  </title>
+
+  <!-- Meta -->
+  <meta name="theme-color" />
+
+  
+  <!-- Author -->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  <meta name="description" content="Launching the Creusot Devlog!" />
+  <meta name="author" content="Creusot Devlog" />
+  <!-- The Open Graph protocol -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Creusot 0.9.0" />
+  <meta property="og:site_name" content="Creusot Devlog" />
+  <meta property="og:description" content="Launching the Creusot Devlog!" />
+  <meta property="og:url" content="&#x2F;devlog&#x2F;2026-01-19&#x2F;" />
+  
+  <!---->
+  
+  <!---->
+  
+  <!---->
+  
+  <meta property="og:image" content="/devlog/creusot-logo-center.jpg" />
+  
+  <!---->
+  
+
+  <!-- CSS & JS -->
+  <link rel="preload stylesheet" as="style" href="/devlog/main.css" />
+  <style>
+    :root {
+      --bg: #f4f4f5;
+      --bg-dark: #18181b;
+      --header: #e4e4e7;
+      --header-dark: #27272a;
+    }
+  </style>
+
+  
+
+  <!-- Dark Icon -->
+  <link rel="preload" as="image" href="/devlog/icons/theme.svg" />
+
+  <!-- Math -->
+  
+  <!---->
+
+  <!-- Mermaid -->
+  
+  <!---->
+
+  <!-- Favicon -->
+  <link rel="icon" href="/devlog/favicon.ico" />
+  <link rel="apple-touch-icon" href="/devlog/apple-touch-icon.png" />
+
+  <!-- Feeds -->
+  
+  <!---->
+  
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title="Atom"
+    href="/devlog/atom.xml"
+  />
+   
+  <!---->
+  
+
+  <!-- Canonical -->
+  <link rel="canonical" href="&#x2F;devlog&#x2F;2026-01-19&#x2F;" />
+
+  <!-- Head inject -->
+  <link rel="stylesheet" href="/devlog/custom.css"/>
+
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header
+  class="header fixed top-0 z-40 mx-auto min-h-[3.5rem] w-full"
+>
+  <div class="mx-auto w-full max-w-4xl p-3 lg:flex lg:justify-between">
+    <div class="flex justify-between">
+      <div class="flex items-center">
+        <a class="text-2xl font-semibold" href="/devlog">Creusot Devlog</a>
+        <div
+          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0px] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:[background-position:right] dark:invert"
+          role="button"
+          aria-label="Dark"
+        ></div>
+      </div>
+      
+    </div>
+    <script>
+      // base
+      const htmlClass = document.documentElement.classList;
+      setTimeout(() => {
+        htmlClass.remove("not-ready");
+      }, 10);
+
+      // mobile menu
+      const btnMenu = document.querySelector(".btn-menu");
+      btnMenu?.addEventListener("click", () => {
+        htmlClass.toggle("open");
+      });
+
+      // dark theme
+      const setDark = (isDark) => {
+        if (isDark) {
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "dark" }));
+          htmlClass.add("dark");
+        } else {
+          document.body.dispatchEvent(new CustomEvent("set-theme", { detail: "light" }));
+          htmlClass.remove("dark");
+        }
+        localStorage.setItem("dark", isDark);
+      };
+
+      // init
+      const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      if (htmlClass.contains("dark")) {
+        setDark(true);
+      } else {
+        const darkVal = localStorage.getItem("dark");
+        setDark(darkVal ? darkVal === "true" : darkScheme.matches);
+      }
+
+      // listen system
+      darkScheme.addEventListener("change", (event) => {
+        setDark(event.matches);
+      });
+
+      // manual switch
+      const btnDark = document.querySelector(".btn-dark");
+      btnDark.addEventListener("click", () => {
+        setDark(localStorage.getItem("dark") !== "true");
+      });
+    </script>
+    
+  </div>
+</header>
+
+
+    <!-- Body Start inject -->
+    
+
+    <div class="flex">
+      <div class="order-1 hidden w-[calc((100%-var(--container-3xl))/2)] lg:block"></div>
+      <aside
+        class="sticky top-0 order-3 mt-48 hidden h-min w-[calc((100%-var(--container-3xl))/2)] lg:block"
+      >
+        
+<nav
+  class="prose prose-neutral dark:prose-invert prose-a:block prose-a:truncate prose-a:font-normal prose-a:secondary-link max-h-lvh overflow-y-auto px-2 pt-18 pb-4"
+>
+  <b class="ml-1.5">Table of Contents</b>
+  <ul>
+    
+    <li>
+      <a href="#begin-devlog">Begin Devlog</a>
+      
+    </li>
+    
+    <li>
+      <a href="#creusot-at-popl">Creusot at POPL</a>
+      
+      <ul>
+        
+        <li>
+          <a href="#upcoming-events">Upcoming events</a>
+        </li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      <a href="#what-s-new-in-creusot">What&#x27;s new in Creusot?</a>
+      
+      <ul>
+        
+        <li>
+          <a href="#creusot-tutorial">Creusot Tutorial</a>
+        </li>
+        
+        <li>
+          <a href="#infer-trivial-loop-invariants">Infer trivial loop invariants</a>
+        </li>
+        
+        <li>
+          <a href="#renamed-creusot-std">Renamed creusot_std</a>
+        </li>
+        
+        <li>
+          <a href="#compatibility-with-no-std">Compatibility with no_std</a>
+        </li>
+        
+        <li>
+          <a href="#concurrency-atomic-invariants">Concurrency: atomic invariants</a>
+        </li>
+        
+      </ul>
+      
+    </li>
+    
+  </ul>
+</nav>
+
+
+      </aside>
+      <main
+        class="prose prose-neutral dark:prose-invert prose-pre:rounded-lg prose-img:rounded-lg order-2 mx-auto min-h-[calc(100vh-9rem)] w-full max-w-3xl px-4 pt-24 pb-16 break-words lg:pt-32"
+      >
+        
+<article>
+  <!-- Page Start inject -->
+  
+
+  <header class="mb-16">
+    <h1 class="my-0! pb-2.5">Creusot 0.9.0</h1>
+    <div class="text-sm antialiased opacity-60">
+  
+  <time>2026-01-19</time>
+  <span class="mx-1">&middot;</span>
+  <span>6min</span>
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  
+  <!-- Page Info inject -->
+  
+</div>
+
+  </header>
+
+  
+
+  <!-- TOC -->
+  
+<nav class="block-bg prose-a:secondary-link mb-12 flex rounded-lg p-2 text-lg">
+  <details>
+    <summary class="cursor-pointer py-1 pl-4">
+      <span class="ml-2">Table of Contents</span>
+    </summary>
+    <ul class="mx-2">
+      
+      <li>
+        <a href="#begin-devlog">Begin Devlog</a>
+        
+      </li>
+      
+      <li>
+        <a href="#creusot-at-popl">Creusot at POPL</a>
+        
+        <ul>
+          
+          <li>
+            <a href="#upcoming-events">Upcoming events</a>
+          </li>
+          
+        </ul>
+        
+      </li>
+      
+      <li>
+        <a href="#what-s-new-in-creusot">What&#x27;s new in Creusot?</a>
+        
+        <ul>
+          
+          <li>
+            <a href="#creusot-tutorial">Creusot Tutorial</a>
+          </li>
+          
+          <li>
+            <a href="#infer-trivial-loop-invariants">Infer trivial loop invariants</a>
+          </li>
+          
+          <li>
+            <a href="#renamed-creusot-std">Renamed creusot_std</a>
+          </li>
+          
+          <li>
+            <a href="#compatibility-with-no-std">Compatibility with no_std</a>
+          </li>
+          
+          <li>
+            <a href="#concurrency-atomic-invariants">Concurrency: atomic invariants</a>
+          </li>
+          
+        </ul>
+        
+      </li>
+      
+    </ul>
+  </details>
+</nav>
+
+<!---->
+
+  <!-- Content -->
+  <section><h2 id="begin-devlog">Begin Devlog</h2>
+<p>Welcome to the Creusot Devlog, where we blog about the development of Creusot project,
+a deductive verifier for Rust.</p>
+<p>The plan is to have posts accompany our <strong>monthly releases</strong>, highlighting key features
+and writing about happenings in and around Creusot.</p>
+<h2 id="creusot-at-popl">Creusot at POPL</h2>
+<p>Last week, the Creusot Team went to POPL 2026, a major academic PL conference.</p>
+<ul>
+<li>
+<p>We presented a tutorial on Creusot. <a href="/devlog/2026-01-19/#creusot-tutorial">More details below.</a></p>
+</li>
+<li>
+<p>Arnaud Golfouse gave a talk at the CPP workshop (Certified Programs and Proofs):</p>
+<ul>
+<li><em>Using Ghost Ownership to Verify Union-Find and Persistent Arrays in Rust</em>,
+by Arnaud Golfouse, Armaël Guéneau, Jacques-Henri Jourdan
+(<a rel="external" href="https://hal.science/hal-05396946v1/">paper on HAL</a>, <a rel="external" href="https://www.youtube.com/live/EkLFghhbRjg?t=29000s">talk on Youtube (at 8h03m)</a>).</li>
+</ul>
+</li>
+</ul>
+<h3 id="upcoming-events">Upcoming events</h3>
+<p>One more Creusot paper will appear in JFLA 2026, a French-speaking academic conference taking place next week. This paper is about verifying an implementation of <a rel="external" href="https://www.sciencedirect.com/science/article/abs/pii/0020019079900681">a tricky tree traversal algorithm</a> (see also <a rel="external" href="https://en.wikipedia.org/wiki/Threaded_binary_tree"><em>Threaded binary tree</em> on Wikipedia</a>) using Creusot:</p>
+<ul>
+<li><em>Boucler la boucle du parcours de Morris</em>, by Arnaud Golfouse and Paul Patault (<a rel="external" href="https://cnrs.hal.science/LMF/hal-05428049v1">paper on HAL</a>, <a rel="external" href="https://zenodo.org/records/17914344">code on Zenodo</a>).</li>
+</ul>
+<p>Also next week, Li-yao Xia will give another presentation of Creusot at the <a rel="external" href="https://rust-formal-methods.github.io/">RFMIG meeting
+(Rust Formal Methods Interest Group)</a>, online, on Monday, January 26 at 18:00 GMT (19:00 in France). It will focus on a work-in-progress case study:
+verifying slice methods in Rust's core library.</p>
+<h2 id="what-s-new-in-creusot">What's new in Creusot?</h2>
+<p>Creusot 0.9.0 was released earlier this month, right before the start of POPL.</p>
+<h3 id="creusot-tutorial">Creusot Tutorial</h3>
+<p>The Creusot tutorial walks you through the process of verifying a Rust program with Creusot.
+The tutorial is available in <a rel="external" href="https://github.com/creusot-rs/tutorial">the <code>creusot-rs/tutorial</code> repository</a>.
+You don't even need to install anything: you can try Creusot online in your browser! See the <a rel="external" href="https://github.com/creusot-rs/tutorial#readme">README</a> for more details.</p>
+<p>This uses a DevContainer, made possible by recently added support for installing Creusot with Nix.</p>
+<h4 id="contents-of-the-tutorial">Contents of the tutorial</h4>
+<ul>
+<li><a rel="external" href="https://github.com/creusot-rs/tutorial/blob/main/src/ex0_examples.rs">A gallery of small examples</a> illustrating Creusot's main features.</li>
+<li>Exercise 1: Gnome sort (<a rel="external" href="https://creusot-rs.github.io/creusot/guide/tutorial/gnome_sort.html">exercise</a>, <a rel="external" href="https://github.com/creusot-rs/tutorial/blob/main/src/ex1_gnome_sort.rs">code</a>)</li>
+<li>Exercise 2: Linked lists (<a rel="external" href="https://creusot-rs.github.io/creusot/guide/tutorial/linked_list.html">exercise</a>, <a rel="external" href="https://github.com/creusot-rs/tutorial/blob/main/src/ex2_linked_list.rs">code</a>)</li>
+</ul>
+<h3 id="infer-trivial-loop-invariants">Infer trivial loop invariants</h3>
+<p>This is a convenience enhancement for type invariants.</p>
+<p>A type invariant is a property that all values of a type should satisfy.
+This is a natural way to encode well-formedness conditions of many data structures.</p>
+<p>For example, below is a type of "ordered pairs", <code>OPair</code>,
+with the type invariant that its fields are indeed ordered.</p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="rust"><span class="giallo-l"><span style="color: #9399B2;font-style: italic;">// Ordered pairs</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">pub struct</span><span style="color: #F9E2AF;font-style: italic;"> OPair</span><span style="color: #9399B2;">(</span><span style="color: #CBA6F7;">pub u64</span><span style="color: #9399B2;">,</span><span style="color: #CBA6F7;"> pub u64</span><span style="color: #9399B2;">);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">impl</span><span style="color: #F9E2AF;font-style: italic;"> Invariant</span><span style="color: #CBA6F7;"> for</span><span style="color: #F9E2AF;font-style: italic;"> OPair</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    #</span><span style="color: #9399B2;">[</span><span style="color: #F9E2AF;font-style: italic;">logic</span><span style="color: #9399B2;">]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    fn</span><span style="color: #89B4FA;font-style: italic;"> invariant</span><span style="color: #9399B2;">(</span><span style="color: #F38BA8;">self</span><span style="color: #9399B2;">)</span><span style="color: #94E2D5;"> -&gt;</span><span style="color: #F9E2AF;font-style: italic;"> bool</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">        pearlite!</span><span style="color: #9399B2;"> {</span><span style="color: #F38BA8;"> self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">0</span><span style="color: #94E2D5;"> &lt;=</span><span style="color: #F38BA8;"> self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;"> }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">}</span></span></code></pre>
+<p>By equipping a type with a type invariant,
+every function whose interface involves that type will implicitly assert its type invariant
+in the function's preconditions and postconditions.</p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="rust"><span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">    #</span><span style="color: #9399B2;">[</span><span style="color: #F9E2AF;font-style: italic;">requires</span><span style="color: #9399B2;">(</span><span style="color: #F9E2AF;font-style: italic;">self</span><span style="color: #94E2D5;">.</span><span style="color: #F9E2AF;font-style: italic;">0</span><span style="color: #94E2D5;"> &lt;</span><span style="color: #F9E2AF;font-style: italic;"> self</span><span style="color: #94E2D5;">.</span><span style="color: #F9E2AF;font-style: italic;">1</span><span style="color: #9399B2;">)]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">    // Implicit:</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">    // #[requires(inv(*self))]</span></span>
+<span class="giallo-l"><span style="color: #9399B2;font-style: italic;">    // #[ensures(inv(^self))]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">    pub fn</span><span style="color: #89B4FA;font-style: italic;"> bump</span><span style="color: #9399B2;">(</span><span style="color: #94E2D5;">&amp;</span><span style="color: #CBA6F7;">mut</span><span style="color: #F38BA8;"> self</span><span style="color: #9399B2;">) {</span></span>
+<span class="giallo-l"><span style="color: #F38BA8;">        self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">0</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span></code></pre>
+<p>The problem arises when we use such a type in a loop. For example:</p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="rust"><span class="giallo-l"><span style="color: #CBA6F7;">    pub fn</span><span style="color: #89B4FA;font-style: italic;"> bump_loop</span><span style="color: #9399B2;">(</span><span style="color: #94E2D5;">&amp;</span><span style="color: #CBA6F7;">mut</span><span style="color: #F38BA8;"> self</span><span style="color: #9399B2;">) {</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        while</span><span style="color: #F38BA8;"> self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">0</span><span style="color: #94E2D5;"> &lt;</span><span style="color: #F38BA8;"> self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #F38BA8;">            self</span><span style="color: #94E2D5;">.</span><span style="color: #89B4FA;font-style: italic;">bump</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span></code></pre>
+<p>In that loop, we call <code>self.bump</code>, which requires <code>self</code> to satisfy its type invariant.</p>
+<p>Previously, we had to explicitly state the loop invariant, that the type invariant is preserved by each iteration of the loop body:</p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="rust"><span class="giallo-l"><span style="color: #CBA6F7;">    pub fn</span><span style="color: #89B4FA;font-style: italic;"> bump_loop</span><span style="color: #9399B2;">(</span><span style="color: #94E2D5;">&amp;</span><span style="color: #CBA6F7;">mut</span><span style="color: #F38BA8;"> self</span><span style="color: #9399B2;">) {</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">        #</span><span style="color: #9399B2;">[</span><span style="color: #F9E2AF;font-style: italic;">invariant</span><span style="color: #9399B2;">(</span><span style="color: #F9E2AF;font-style: italic;">inv</span><span style="color: #9399B2;">(</span><span style="color: #94E2D5;">*</span><span style="color: #F9E2AF;font-style: italic;">self</span><span style="color: #9399B2;">))]</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        while</span><span style="color: #F38BA8;"> self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">0</span><span style="color: #94E2D5;"> &lt;</span><span style="color: #F38BA8;"> self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #F38BA8;">            self</span><span style="color: #94E2D5;">.</span><span style="color: #89B4FA;font-style: italic;">bump</span><span style="color: #9399B2;">()</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span></code></pre>
+<p>This kind of condition easy to forget for newcomers,
+and becomes quite cumbersome as more type invariants are involved.</p>
+<p>Now this invariant is automatically inserted by Creusot.</p>
+<p>That's not all. It may still be desirable to write loops
+that don't preserve the type invariant—for example, in the initialization
+of a complex data structure.</p>
+<p>Although one might imagine a flag to toggle this behavior, we propose an
+automatic but conservative solution that guesses right in most cases:
+a type invariant is inserted in a loop invariant only if the last
+write to a given variable before (re)entering the loop comes from
+a function boundary.</p>
+<p>For the example above,
+<code>self</code> is written to by the caller of the function first, and then
+by the <code>bump</code> method in the loop, both of which involve a type invariant assertion,
+so we can safely insert that type invariant as a loop invariant.</p>
+<p>For a counterexample, below we replaced the <code>bump</code> call with a direct
+assignment to a field of <code>self</code>. Such assignments are not required to
+preserve the type invariant of <code>self</code> in general (even though in this case it does).
+Indeed, we expect field assignments to occur as part of the implementation
+of a data structure, temporarily breaking type invariants.
+Consequently, Creusot does not insert the type invariant implicitly in this case.
+The user can still provide it if necessary.</p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="rust"><span class="giallo-l"><span style="color: #CBA6F7;">    pub fn</span><span style="color: #89B4FA;font-style: italic;"> bump_loop_raw</span><span style="color: #9399B2;">(</span><span style="color: #94E2D5;">&amp;</span><span style="color: #CBA6F7;">mut</span><span style="color: #F38BA8;"> self</span><span style="color: #9399B2;">) {</span></span>
+<span class="giallo-l"><span style="color: #F9E2AF;font-style: italic;">        #</span><span style="color: #9399B2;">[</span><span style="color: #F9E2AF;font-style: italic;">invariant</span><span style="color: #9399B2;">(</span><span style="color: #F9E2AF;font-style: italic;">inv</span><span style="color: #9399B2;">(</span><span style="color: #94E2D5;">*</span><span style="color: #F9E2AF;font-style: italic;">self</span><span style="color: #9399B2;">))]</span><span style="color: #9399B2;font-style: italic;"> // Must be explicit</span></span>
+<span class="giallo-l"><span style="color: #CBA6F7;">        while</span><span style="color: #F38BA8;"> self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">0</span><span style="color: #94E2D5;"> &lt;</span><span style="color: #F38BA8;"> self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">1</span><span style="color: #9399B2;"> {</span></span>
+<span class="giallo-l"><span style="color: #F38BA8;">            self</span><span style="color: #94E2D5;">.</span><span style="color: #FAB387;">0</span><span style="color: #94E2D5;"> +=</span><span style="color: #FAB387;"> 1</span><span style="color: #9399B2;">;</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">        }</span></span>
+<span class="giallo-l"><span style="color: #9399B2;">    }</span></span></code></pre>
+<p>Creusot decides whether to insert such type invariants by performing
+a little static analysis, a standard exercise in compiler writing.</p>
+<p>This analysis also detects mutable variables that are not actually written to,
+so that Creusot can also insert invariants that say "this value hasn't changed
+since the beginning of the loop".</p>
+<h3 id="renamed-creusot-std">Renamed <code>creusot_std</code></h3>
+<p>Creusot's standard library has been renamed from <code>creusot_contracts</code>
+to <code>creusot_std</code>.</p>
+<p>This library provides macros to enable writing contracts (<code>requires</code>, etc.),
+and it also contains contracts for the Rust standard library, hence the
+old name <code>creusot_contracts</code>. The new name <code>creusot_std</code> better conveys the
+idea that it's a fundamental library to be imported by all Creusot users.</p>
+<h3 id="compatibility-with-no-std">Compatibility with <code>no_std</code></h3>
+<p>The <code>creusot_std</code> library now features a flag <code>std</code> which can be disabled
+for <code>no_std</code> projects. This is part of ongoing work to support the verification
+of low-level embedded code.</p>
+<p>Disabling <code>std</code> reduces the dependencies of <code>creusot_std</code> to <code>core</code> and <code>alloc</code>.
+This removes contracts for a few data structures such as hashmaps.
+In the future, it may be possible to avoid the dependency on <code>alloc</code> as well,
+but it seems that most <code>no_std</code> projects also depend on <code>alloc</code> anyway.</p>
+<h3 id="concurrency-atomic-invariants">Concurrency: atomic invariants</h3>
+<p>Creusot takes its first step in the formal verification of concurrent programs.
+Our first working example is <a rel="external" href="https://github.com/creusot-rs/creusot/blob/6c46bc958029c2185e136ed7de15610ff69d027e/tests/should_succeed/atomics/parallel_add.rs"><code>parallel_add</code></a>
+(for comparison, here is <a rel="external" href="https://github.com/creusot-rs/tutorial/blob/fe0cfc1691621f22d59a48ff357ff385a3689d34/src/ex3_parallel_add.rs#L29-L49">the equivalent Rust code</a> without ghost annotations).</p>
+<p>This builds on top of the aforementioned work on ghost ownership presented at CPP 2026.
+For concurrency, this release makes two key additions to the <code>creusot_std</code> library:
+the <a rel="external" href="https://creusot-rs.github.io/creusot/doc/creusot_std/std/sync/struct.AtomicI32.html"><code>AtomicI32</code></a>
+type—a ghost-aware wrapper around <a rel="external" href="https://doc.rust-lang.org/std/sync/atomic/struct.AtomicI32.html"><code>std::sync::atomic::AtomicI32</code></a>—and
+a notion of <a rel="external" href="https://creusot-rs.github.io/creusot/doc/creusot_std/ghost/invariant/struct.AtomicInvariant.html"><code>AtomicInvariant</code></a> inspired by <a rel="external" href="https://iris-project.org/">Iris</a>, a separation logic framework in Rocq.
+For now, this only supports sequential consistency. There is ongoing
+work to also provide support for relaxed memory models.</p>
+<p>Stay tuned for future updates on Creusot!</p>
+</section>
+
+  <hr />
+
+  <!-- Post Taxonomies -->
+  
+<!---->
+
+  <!-- Post Nav -->
+  
+<!---->
+
+  <!-- Comment -->
+  
+
+  <!-- Page End inject -->
+  
+</article>
+
+      </main>
+    </div>
+
+    <footer class="mx-auto flex max-w-3xl flex-wrap items-center px-8 py-4 text-sm opacity-60">
+  <div class="mr-auto basis-full lg:basis-1/2">
+    <!---->
+    <!---->
+    &copy; 2026<!---->
+    
+    <a class="link" href="/devlog">
+      Creusot Devlog
+    </a>
+     |<!---->
+    <!---->
+    <a class="link" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;deed" rel="noopener" target="_blank">
+      CC BY-SA 4.0
+    </a>
+    <!---->
+    
+  </div>
+  <div class="flex basis-full lg:basis-1/2 lg:justify-end">
+    <a class="link mr-6 lg:ml-6" href="https://www.getzola.org/" rel="noopener" target="_blank">
+      Powered by Zola
+    </a>
+    <a class="link" href="https://github.com/st1020/kita" rel="noopener" target="_blank">✎ Kita</a>
+  </div>
+  <!-- Footer inject -->
+  
+</footer>
+
+
+    <!-- Body End inject -->
+    
+  </body>
+</html>

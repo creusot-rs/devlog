@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Creusot Devlog</title>
+    <link rel="self" type="application/atom+xml" href="/devlog/atom.xml"/>
+    <link rel="alternate" type="text/html" href="/devlog/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-01-19T00:00:00+00:00</updated>
+    <id>/devlog/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Creusot 0.9.0</title>
+        <published>2026-01-19T00:00:00+00:00</published>
+        <updated>2026-01-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="/devlog/2026-01-19/"/>
+        <id>/devlog/2026-01-19/</id>
+        
+        <content type="html" xml:base="/devlog/2026-01-19/">&lt;h2 id=&quot;begin-devlog&quot;&gt;Begin Devlog&lt;&#x2F;h2&gt;
+&lt;p&gt;Welcome to the Creusot Devlog, where we blog about the development of the Creusot project.&lt;&#x2F;p&gt;
+&lt;p&gt;The plan is to have posts accompany our &lt;strong&gt;monthly releases&lt;&#x2F;strong&gt;, highlighting key features
+and writing about happenings in and around Creusot.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;creusot-at-popl&quot;&gt;Creusot at POPL&lt;&#x2F;h2&gt;
+&lt;p&gt;Last week, the Creusot Team went to POPL 2026, a major academic PL conference.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;We presented a tutorial on Creusot. &lt;a href=&quot;&#x2F;devlog&#x2F;2026-01-19&#x2F;#creusot-tutorial&quot;&gt;More details below.&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Arnaud Golfouse gave a talk at the CPP workshop (Certified Programs and Proofs):&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Using Ghost Ownership to Verify Union-Find and Persistent Arrays in Rust&lt;&#x2F;em&gt;,
+by Arnaud Golfouse, Armaël Guéneau, Jacques-Henri Jourdan
+(&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;hal.science&#x2F;hal-05396946v1&#x2F;&quot;&gt;paper on HAL&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;live&#x2F;EkLFghhbRjg?t=29000s&quot;&gt;talk on Youtube (at 8h03m)&lt;&#x2F;a&gt;).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;upcoming-events&quot;&gt;Upcoming events&lt;&#x2F;h3&gt;
+&lt;p&gt;One more Creusot paper will appear in JFLA 2026, a French-speaking academic conference taking place next week. This paper is about verifying an implementation of &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.sciencedirect.com&#x2F;science&#x2F;article&#x2F;abs&#x2F;pii&#x2F;0020019079900681&quot;&gt;a tricky tree traversal algorithm&lt;&#x2F;a&gt; (see also &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Threaded_binary_tree&quot;&gt;&lt;em&gt;Threaded binary tree&lt;&#x2F;em&gt; on Wikipedia&lt;&#x2F;a&gt;) using Creusot:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Boucler la boucle du parcours de Morris&lt;&#x2F;em&gt;, by Arnaud Golfouse and Paul Patault (&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;cnrs.hal.science&#x2F;LMF&#x2F;hal-05428049v1&quot;&gt;paper on HAL&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;zenodo.org&#x2F;records&#x2F;17914344&quot;&gt;code on Zenodo&lt;&#x2F;a&gt;).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Also next week, Li-yao Xia will give another presentation of Creusot at the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;rust-formal-methods.github.io&#x2F;&quot;&gt;RFMIG meeting
+(Rust Formal Methods Interest Group)&lt;&#x2F;a&gt;, online, on Monday, January 26 at 18:00 GMT (19:00 in France). It will focus on a work-in-progress case study:
+verifying slice methods in Rust&#x27;s core library.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-s-new-in-creusot&quot;&gt;What&#x27;s new in Creusot?&lt;&#x2F;h2&gt;
+&lt;p&gt;Creusot 0.9.0 was released earlier this month, right before the start of POPL.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;creusot-tutorial&quot;&gt;Creusot Tutorial&lt;&#x2F;h3&gt;
+&lt;p&gt;The Creusot tutorial walks you through the process of verifying a Rust program with Creusot.
+The tutorial is available in &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;creusot-rs&#x2F;tutorial&quot;&gt;the &lt;code&gt;creusot-rs&#x2F;tutorial&lt;&#x2F;code&gt; repository&lt;&#x2F;a&gt;.
+You don&#x27;t even need to install anything: you can try Creusot online in your browser! See the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;creusot-rs&#x2F;tutorial#readme&quot;&gt;README&lt;&#x2F;a&gt; for more details.&lt;&#x2F;p&gt;
+&lt;p&gt;This uses a DevContainer, made possible by recently added support for installing Creusot with Nix.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;contents-of-the-tutorial&quot;&gt;Contents of the tutorial&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;creusot-rs&#x2F;tutorial&#x2F;blob&#x2F;main&#x2F;src&#x2F;ex0_examples.rs&quot;&gt;A gallery of small examples&lt;&#x2F;a&gt; illustrating Creusot&#x27;s main features.&lt;&#x2F;li&gt;
+&lt;li&gt;Exercise 1: Gnome sort (&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;creusot-rs.github.io&#x2F;creusot&#x2F;guide&#x2F;tutorial&#x2F;gnome_sort.html&quot;&gt;exercise&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;creusot-rs&#x2F;tutorial&#x2F;blob&#x2F;main&#x2F;src&#x2F;ex1_gnome_sort.rs&quot;&gt;code&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;li&gt;Exercise 2: Linked lists (&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;creusot-rs.github.io&#x2F;creusot&#x2F;guide&#x2F;tutorial&#x2F;linked_list.html&quot;&gt;exercise&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;creusot-rs&#x2F;tutorial&#x2F;blob&#x2F;main&#x2F;src&#x2F;ex2_linked_list.rs&quot;&gt;code&lt;&#x2F;a&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;infer-trivial-loop-invariants&quot;&gt;Infer trivial loop invariants&lt;&#x2F;h3&gt;
+&lt;p&gt;This is a convenience enhancement for type invariants.&lt;&#x2F;p&gt;
+&lt;p&gt;A type invariant is a property that all values of a type should satisfy.
+This is a natural way to encode well-formedness conditions of many data structures.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, below is a type of &quot;ordered pairs&quot;, &lt;code&gt;OPair&lt;&#x2F;code&gt;,
+with the type invariant that its fields are indeed ordered.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #CDD6F4; background-color: #1E1E2E;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;font-style: italic;&quot;&gt;&#x2F;&#x2F; Ordered pairs&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;pub struct&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt; OPair&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;pub u64&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt; pub u64&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;impl&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt; Invariant&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt; for&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt; OPair&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;    #&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;logic&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;    fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt; invariant&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt; bool&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt;        pearlite!&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt; {&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt; &amp;lt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt; }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;By equipping a type with a type invariant,
+every function whose interface involves that type will implicitly assert its type invariant
+in the function&#x27;s preconditions and postconditions.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #CDD6F4; background-color: #1E1E2E;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;    #&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;requires&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt; &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;)]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;font-style: italic;&quot;&gt;    &#x2F;&#x2F; Implicit:&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;font-style: italic;&quot;&gt;    &#x2F;&#x2F; #[requires(inv(*self))]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;font-style: italic;&quot;&gt;    &#x2F;&#x2F; #[ensures(inv(^self))]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;    pub fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt; bump&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;) {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt;        self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt; +=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The problem arises when we use such a type in a loop. For example:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #CDD6F4; background-color: #1E1E2E;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;    pub fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt; bump_loop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;) {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;        while&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt; &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt;            self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt;bump&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;()&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In that loop, we call &lt;code&gt;self.bump&lt;&#x2F;code&gt;, which requires &lt;code&gt;self&lt;&#x2F;code&gt; to satisfy its type invariant.&lt;&#x2F;p&gt;
+&lt;p&gt;Previously, we had to explicitly state the loop invariant, that the type invariant is preserved by each iteration of the loop body:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #CDD6F4; background-color: #1E1E2E;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;    pub fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt; bump_loop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;) {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;        #&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;invariant&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;inv&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;))]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;        while&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt; &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt;            self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt;bump&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;()&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This kind of condition easy to forget for newcomers,
+and becomes quite cumbersome as more type invariants are involved.&lt;&#x2F;p&gt;
+&lt;p&gt;Now this invariant is automatically inserted by Creusot.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s not all. It may still be desirable to write loops
+that don&#x27;t preserve the type invariant—for example, in the initialization
+of a complex data structure.&lt;&#x2F;p&gt;
+&lt;p&gt;Although one might imagine a flag to toggle this behavior, we propose an
+automatic but conservative solution that guesses right in most cases:
+a type invariant is inserted in a loop invariant only if the last
+write to a given variable before (re)entering the loop comes from
+a function boundary.&lt;&#x2F;p&gt;
+&lt;p&gt;For the example above,
+&lt;code&gt;self&lt;&#x2F;code&gt; is written to by the caller of the function first, and then
+by the &lt;code&gt;bump&lt;&#x2F;code&gt; method in the loop, both of which involve a type invariant assertion,
+so we can safely insert that type invariant as a loop invariant.&lt;&#x2F;p&gt;
+&lt;p&gt;For a counterexample, below we replaced the &lt;code&gt;bump&lt;&#x2F;code&gt; call with a direct
+assignment to a field of &lt;code&gt;self&lt;&#x2F;code&gt;. Such assignments are not required to
+preserve the type invariant of &lt;code&gt;self&lt;&#x2F;code&gt; in general (even though in this case it does).
+Indeed, we expect field assignments to occur as part of the implementation
+of a data structure, temporarily breaking type invariants.
+Consequently, Creusot does not insert the type invariant implicitly in this case.
+The user can still provide it if necessary.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #CDD6F4; background-color: #1E1E2E;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;    pub fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt; bump_loop_raw&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;) {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;        #&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;invariant&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;inv&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F9E2AF;font-style: italic;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;))]&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;font-style: italic;&quot;&gt; &#x2F;&#x2F; Must be explicit&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #CBA6F7;&quot;&gt;        while&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt; &amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt; self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F38BA8;&quot;&gt;            self&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt; +=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FAB387;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #9399B2;&quot;&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Creusot decides whether to insert such type invariants by performing
+a little static analysis, a standard exercise in compiler writing.&lt;&#x2F;p&gt;
+&lt;p&gt;This analysis also detects mutable variables that are not actually written to,
+so that Creusot can also insert invariants that say &quot;this value hasn&#x27;t changed
+since the beginning of the loop&quot;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;renamed-creusot-std&quot;&gt;Renamed &lt;code&gt;creusot_std&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Creusot&#x27;s standard library has been renamed from &lt;code&gt;creusot_contracts&lt;&#x2F;code&gt;
+to &lt;code&gt;creusot_std&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This library provides macros to enable writing contracts (&lt;code&gt;requires&lt;&#x2F;code&gt;, etc.),
+and it also contains contracts for the Rust standard library, hence the
+old name &lt;code&gt;creusot_contracts&lt;&#x2F;code&gt;. The new name &lt;code&gt;creusot_std&lt;&#x2F;code&gt; better conveys the
+idea that it&#x27;s a fundamental library to be imported by all Creusot users.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;compatibility-with-no-std&quot;&gt;Compatibility with &lt;code&gt;no_std&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;The &lt;code&gt;creusot_std&lt;&#x2F;code&gt; library now features a flag &lt;code&gt;std&lt;&#x2F;code&gt; which can be disabled
+for &lt;code&gt;no_std&lt;&#x2F;code&gt; projects. This is part of ongoing work to support the verification
+of low-level embedded code.&lt;&#x2F;p&gt;
+&lt;p&gt;Disabling &lt;code&gt;std&lt;&#x2F;code&gt; reduces the dependencies of &lt;code&gt;creusot_std&lt;&#x2F;code&gt; to &lt;code&gt;core&lt;&#x2F;code&gt; and &lt;code&gt;alloc&lt;&#x2F;code&gt;.
+This removes contracts for a few data structures such as hashmaps.
+In the future, it may be possible to avoid the dependency on &lt;code&gt;alloc&lt;&#x2F;code&gt; as well,
+but it seems that most &lt;code&gt;no_std&lt;&#x2F;code&gt; projects also depend on &lt;code&gt;alloc&lt;&#x2F;code&gt; anyway.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;concurrency-atomic-invariants&quot;&gt;Concurrency: atomic invariants&lt;&#x2F;h3&gt;
+&lt;p&gt;Creusot takes its first step in the formal verification of concurrent programs.
+Our first working example is &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;creusot-rs&#x2F;creusot&#x2F;blob&#x2F;6c46bc958029c2185e136ed7de15610ff69d027e&#x2F;tests&#x2F;should_succeed&#x2F;atomics&#x2F;parallel_add.rs&quot;&gt;&lt;code&gt;parallel_add&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+(for comparison, here is &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;creusot-rs&#x2F;tutorial&#x2F;blob&#x2F;fe0cfc1691621f22d59a48ff357ff385a3689d34&#x2F;src&#x2F;ex3_parallel_add.rs#L29-L49&quot;&gt;the equivalent Rust code&lt;&#x2F;a&gt; without ghost annotations).&lt;&#x2F;p&gt;
+&lt;p&gt;This builds on top of the aforementioned work on ghost ownership presented at CPP 2026.
+For concurrency, this release makes two key additions to the &lt;code&gt;creusot_std&lt;&#x2F;code&gt; library:
+the &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;creusot-rs.github.io&#x2F;creusot&#x2F;doc&#x2F;creusot_std&#x2F;std&#x2F;sync&#x2F;struct.AtomicI32.html&quot;&gt;&lt;code&gt;AtomicI32&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;
+type—a ghost-aware wrapper around &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;std&#x2F;sync&#x2F;atomic&#x2F;struct.AtomicI32.html&quot;&gt;&lt;code&gt;std::sync::atomic::AtomicI32&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;—and
+a notion of &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;creusot-rs.github.io&#x2F;creusot&#x2F;doc&#x2F;creusot_std&#x2F;ghost&#x2F;invariant&#x2F;struct.AtomicInvariant.html&quot;&gt;&lt;code&gt;AtomicInvariant&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; inspired by &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;iris-project.org&#x2F;&quot;&gt;Iris&lt;&#x2F;a&gt;, a separation logic framework in Rocq.
+For now, this only supports sequential consistency. There is ongoing
+work to also provide support for relaxed memory models.&lt;&#x2F;p&gt;
+&lt;p&gt;Stay tuned for future updates on Creusot!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
