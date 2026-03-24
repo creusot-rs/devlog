@@ -1,6 +1,6 @@
 # Creusot Devlog
 
-https://creusot-rs.github.io/devlog
+https://devlog.creusot.rs
 
 ## How to build
 
