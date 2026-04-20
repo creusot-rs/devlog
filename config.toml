@@ -20,10 +20,14 @@ theme = "catppuccin-mocha"
 side_toc = true
 social_image = "creusot-logo-center.jpg"
 
+[[extra.menu]]
+name = "Home – creusot.rs"
+url = "https://creusot.rs"
+
 [extra.profile]
 name = "What's new in Creusot?"
 bio = """
-Devlog of the [Creusot deductive verifier](https://github.com/creusot-rs/creusot) for Rust.
+Devlog of the [Creusot deductive verifier](https://creusot.rs) for Rust.
 [The Creusot team](https://github.com/creusot-rs) is part of [Laboratoire Méthodes Formelles](https://lmf.cnrs.fr/).
 """
 avatar_url = "creusot-logo-center.jpg"
