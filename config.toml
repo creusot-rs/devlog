@@ -21,7 +21,7 @@ side_toc = true
 social_image = "creusot-logo-center.jpg"
 
 [[extra.menu]]
-name = "Home – creusot.rs"
+name = "creusot.rs [Home]"
 url = "https://creusot.rs"
 
 [extra.profile]
