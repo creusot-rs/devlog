@@ -12,6 +12,7 @@ generate_feeds = true
 feed_filenames = ["atom.xml"]
 
 [markdown]
+bottom_footnotes = true
 
 [markdown.highlighting]
 theme = "catppuccin-mocha"
